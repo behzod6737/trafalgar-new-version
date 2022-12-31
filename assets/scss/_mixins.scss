@@ -1,0 +1,46 @@
+@mixin list-unstyled {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin a {
+  text-decoration: none;
+  color: black;
+}
+
+@mixin transition {
+  transition: all 400ms ease-in-out;
+
+}
+
+
+@mixin cssretina {
+  @media /* only for retina displays */
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin breakpoint-up($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin breakpoint-between($min, $max) {
+  @media only screen and (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
